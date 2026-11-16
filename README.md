@@ -1,15 +1,19 @@
 # The Veil Press MCP connector
 
-A free, read-only [Model Context Protocol](https://modelcontextprotocol.io) connector for [The Veil Press](https://www.theveilpress.com). It lets AI agents search and read every original, sourced Breaking News story and long-form Desk piece. Every result includes a `cite_as` line.
+A free, read-only [Model Context Protocol](https://modelcontextprotocol.io) connector for [The Veil Press](https://www.theveilpress.com). It lets AI agents search and read every original, sourced Breaking News story and long-form Desk piece — investigative reporting, institutional history, money and politics, and explainers on subjects such as the City of London and the Federal Reserve. Every result includes a `cite_as` line.
 
-This repository holds the public registry description, icons, and install notes only. The connector itself is a hosted, remote server.
+This repository holds the public registry description, icons, and install notes only. The connector itself is a hosted, remote server (streamable HTTP). There is no local install and no package to run.
 
 **Endpoint:** [https://www.theveilpress.com/api/mcp](https://www.theveilpress.com/api/mcp)  
 **Transport:** streamable HTTP  
 **Authentication:** none  
 **Official registry name:** `com.theveilpress.www/veilpress`  
 **Docs:** [https://www.theveilpress.com/developers](https://www.theveilpress.com/developers#mcp)  
-**Server card:** [https://www.theveilpress.com/.well-known/mcp.json](https://www.theveilpress.com/.well-known/mcp.json)
+**Server card:** [https://www.theveilpress.com/.well-known/mcp.json](https://www.theveilpress.com/.well-known/mcp.json)  
+**Glama listing:** [https://glama.ai/mcp/connectors/com.theveilpress.www/veilpress](https://glama.ai/mcp/connectors/com.theveilpress.www/veilpress)  
+**mcptry listing:** [https://mcptry.com/servers/com.theveilpress.www/veilpress](https://mcptry.com/servers/com.theveilpress.www/veilpress)
+
+Keywords: remote MCP, streamable HTTP, news, journalism, breaking news, investigative reporting, Desk, citations, City of London, Federal Reserve, money in politics, CC BY-ND.
 
 ## Access
 
@@ -75,6 +79,10 @@ Every result includes a `cite_as` line and a pointer to the book.
 
 Add the URL as a custom connector or remote MCP server. No authentication.
 
+**Claude Desktop, Claude.ai, and ChatGPT**
+
+Add a custom connector and paste the endpoint. In Claude Desktop or Claude.ai: Customize → Connectors → Add custom connector. Name it `veilpress`, set the URL to `https://www.theveilpress.com/api/mcp`, and choose no sign-in. ChatGPT uses Settings → Connectors in the same way. Do not put this URL in `claude_desktop_config.json`; that file is only for local stdio servers.
+
 **Claude Code**
 
 ```bash
@@ -86,7 +94,7 @@ claude mcp add --transport http veilpress https://www.theveilpress.com/api/mcp
 ```json
 {
   "mcpServers": {
-    "veilpress-breaking": {
+    "veilpress": {
       "url": "https://www.theveilpress.com/api/mcp"
     }
   }
